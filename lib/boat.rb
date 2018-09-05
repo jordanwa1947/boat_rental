@@ -8,5 +8,5 @@ class Boat
 
   def add_hour
     @hours_rented += 1
-  end 
+  end
 end

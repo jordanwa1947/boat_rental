@@ -6,16 +6,23 @@ class Dock
     @max_rental_time = max_rental_time
   end
 
-  def calculate_revenue(dock_object, boat_object)
-    if dock_object.max_rental_time > boat_object.hours_rented
+  def revenue
+    if @max_rental_time > boat.hours_rented
       boat_object.price_per_hour * boat_object.hours_rented
     else
-      boat_object.price_per_hour * dock_object.max_rental_time
+      boat_object.price_per_hour * @max_rental_time
     end
   end
 
-  def rent
+  def rent(boat, renter)
 
   end
 
+  def log_hour
+    boat.hours_rented + 1
+  end
+
+  def return
+
+  end
 end

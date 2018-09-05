@@ -37,19 +37,15 @@ class DockTest < Minitest::Test
     kayak.add_hour
     kayak.add_hour
 
-    assert_equal 60, dock.calculate_revenue(dock, kayak)
+    assert_equal 60, dock.revenue
   end
 
-  def test_that_when_a_dock_begins_tracking_rent
+  def test_that_log_hour_adds_one_hour_for_every_boat_rented
     dock = Dock.new("The Rowing Dock", 3)
     kayak_1 = Boat.new(:kayak, 20)
     kayak_2 = Boat.new(:kayak, 20)
-    canoe = Boat.new(:canoe, 25)
-    sup_1 = Boat.new(:standup_paddle_board, 15)
-    sup_2 = Boat.new(:standup_paddle_board, 15)
     patrick = Renter.new("Patrick Star", "4242424242424242")
-    eugene = Renter.new("Eugene Crabs", "1313131313131313")
 
-    assert_equal 1, dock.rent(canoe, patrick)
+    dock.rent(kayak_1, patrick)
   end
 end
